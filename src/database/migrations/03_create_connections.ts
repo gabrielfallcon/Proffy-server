@@ -14,7 +14,7 @@ export async function up(knex: Knex) {
 
     // criando um campo data que por padrão é a data atual
     table.timestamp('created_at')
-      .defaultTo('now()')
+      .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
       .notNullable();
   });
 }
